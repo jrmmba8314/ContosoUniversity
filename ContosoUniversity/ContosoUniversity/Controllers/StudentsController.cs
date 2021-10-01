@@ -39,7 +39,7 @@ namespace ContosoUniversity.Controllers
             ViewData["CurrentFilter"] = searchString;
 
             var students = from s in _context.Students
-                select s;
+                           select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                 students = students.Where(s => s.LastName.Contains(searchString)
@@ -214,7 +214,7 @@ namespace ContosoUniversity.Controllers
             }
             catch (DbUpdateException /* ex */)
             {
-                return RedirectToAction(nameof(Delete), new {id = id, saveChangesError = true});
+                return RedirectToAction(nameof(Delete), new { id = id, saveChangesError = true });
             }
         }
 

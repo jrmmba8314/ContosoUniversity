@@ -208,11 +208,11 @@ namespace ContosoUniversity.Migrations
 
             modelBuilder.Entity("ContosoUniversity.Models.Department", b =>
                 {
-                    b.HasOne("ContosoUniversity.Models.Instructor", "Admininstrator")
+                    b.HasOne("ContosoUniversity.Models.Instructor", "Administrator")
                         .WithMany()
                         .HasForeignKey("InstructorID");
 
-                    b.Navigation("Admininstrator");
+                    b.Navigation("Administrator");
                 });
 
             modelBuilder.Entity("ContosoUniversity.Models.Enrollment", b =>

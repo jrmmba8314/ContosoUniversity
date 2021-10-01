@@ -28,7 +28,7 @@ namespace ContosoUniversity
             services.Configure<MvcOptions>(options =>
                 options.MaxModelBindingCollectionSize = myMaxModelBindingCollectionSize);
 
-            services.AddDbContext<SchoolContext>(options => 
+            services.AddDbContext<SchoolContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddControllersWithViews();
