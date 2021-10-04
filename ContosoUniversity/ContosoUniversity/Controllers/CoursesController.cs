@@ -178,5 +178,23 @@ namespace ContosoUniversity.Controllers
                 select d;
             ViewBag.DepartmentID = new SelectList(departmentsQuery.AsNoTracking(), "DepartmentID", "Name", selectedDepartment);
         }
+
+        public IActionResult UpdateCourseCredits()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateCourseCredits(int? multiplier)
+        {
+            if (multiplier != null)
+            {
+                ViewData["RowsAffected"] =
+                    await _context.Database.ExecuteSqlInterpolatedAsync(
+                        $"UPDATE Course SET Credits = Credits * {multiplier}");
+            }
+
+            return View();
+        }
     }
 }
